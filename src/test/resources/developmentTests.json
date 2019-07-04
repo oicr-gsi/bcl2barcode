@@ -1,0 +1,16 @@
+{
+  "defaults": {
+    "description": "Bcl2Barcode workflow test",
+    "metrics_calculate": "calculate.sh",
+    "metrics_compare": "compare.sh",
+    "output_metrics_dir": "/.mounts/labs/PDE/data/RegressionTests/Bcl2Barcode/workflow/development/output_expectation/"
+  },
+  "tests": [
+    {
+      "id": "test1",
+      "parameters": {
+        "wdl_inputs": "{\"test.myTask.mem\": \"24\", \"test.myTask.filePrefix\": \"output_file_name\"}"
+      }
+    }
+  ]
+}
