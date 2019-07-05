@@ -82,9 +82,6 @@ for i in ${!OUTPUTS[@]}; do
     *.tbi)
       METATYPE="application/tbi"
     ;;
-    *.txt.gz)
-      METATYPE="application/txt-gz"
-    ;;
     *.vcf.gz)
       METATYPE="application/vcf-gz"
     ;;
@@ -114,6 +111,9 @@ for i in ${!OUTPUTS[@]}; do
     ;;
     *.vcf)
       METATYPE="text/vcf"
+    ;;
+    *.txt.gz|*.gz)
+      METATYPE="application/txt-gz"
     ;;
     *.out|*.log|*.txt)
       METATYPE="txt/plain"
