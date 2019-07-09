@@ -68,7 +68,7 @@ task generateIndexFastqs {
         uniq -c | \
         sort -nr | \
         awk '{ print $1 "," $2}' | \
-        gzip > "counts.gz"
+        gzip -n > "counts.gz"
     >>>
 
     output {
@@ -93,7 +93,7 @@ task generateIndexFastqs {
         uniq -c | \
         sort -nr | \
         awk '{ print $1 "," $2}' | \
-        gzip > "counts.gz"
+        gzip -n > "counts.gz"
     >>>
 
     output {
