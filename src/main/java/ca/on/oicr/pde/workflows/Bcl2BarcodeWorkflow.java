@@ -220,14 +220,8 @@ public class Bcl2BarcodeWorkflow extends OicrWorkflow {
 
     private List<String> writeStringToFile(String fileContents, String filePath) {
         return Arrays.asList(
-                "set -o pipefail;\n",
-                "set -o errexit;\n",
-                "cat << END_OF_FILE_CONTENTS",
-                ">",
-                filePath,
-                "\n",
-                fileContents,
-                "\nEND_OF_FILE_CONTENTS\n");
+                "cat << END_OF_FILE_CONTENTS" + ">",
+                filePath + "\n" + fileContents + "\nEND_OF_FILE_CONTENTS\n");
     }
 
     private String getRequiredProperty(String key) {
