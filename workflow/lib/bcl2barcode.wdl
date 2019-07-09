@@ -1,7 +1,20 @@
 version 1.0
 
 workflow bcl2barcode {
-    call generateIndexFastqs
+    input {
+        String bcl2fastq
+        String runDirectory
+        String lane
+        String basesMask
+    }
+
+    call generateIndexFastqs {
+        input:
+            bcl2fastq = bcl2fastq,
+            runDirectory = runDirectory,
+            lane = lane,
+            basesMask = basesMask
+    }
     if(defined(generateIndexFastqs.index2)) {
         call countDualIndex {
             input:
