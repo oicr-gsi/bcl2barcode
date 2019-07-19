@@ -44,8 +44,9 @@ public class Bcl2BarcodeWorkflowTest {
     @Test
     public void testInit() throws IOException {
 
-        Map<String, String> config = new HashMap<String, String>();
+        Map<String, String> config = new HashMap<>();
         config.put("wdl_inputs", "{\"key\":\"value\"}");
+        config.put("cromwell_host", "???");
 
         Bcl2BarcodeWorkflow wf = getWorkflow();
         wf.getConfigs().putAll(config);

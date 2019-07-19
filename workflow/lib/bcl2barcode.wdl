@@ -2,7 +2,6 @@ version 1.0
 
 workflow bcl2barcode {
     input {
-        String bcl2fastq
         String runDirectory
         String lane
         String basesMask
@@ -10,7 +9,6 @@ workflow bcl2barcode {
 
     call generateIndexFastqs {
         input:
-            bcl2fastq = bcl2fastq,
             runDirectory = runDirectory,
             lane = lane,
             basesMask = basesMask
@@ -36,10 +34,11 @@ workflow bcl2barcode {
 task generateIndexFastqs {
     input {
         Int? mem = 32
-        String bcl2fastq
+        String? bcl2fastq = "bcl2fastq"
         String runDirectory
         String lane
         String basesMask
+        String? modules = "bcl2fastq/2.20.0.422"
     }
 
     String outputDirectory = "out"
@@ -64,7 +63,8 @@ task generateIndexFastqs {
     }
 
     runtime {
-        memory: "${mem} GB"
+        memory: "~{mem} GB"
+        modules: "~{modules}"
     }
  }
 
@@ -89,7 +89,7 @@ task generateIndexFastqs {
     }
 
     runtime {
-        memory: "${mem} GB"
+        memory: "~{mem} GB"
     }
  }
 
@@ -114,6 +114,6 @@ task generateIndexFastqs {
     }
 
     runtime {
-        memory: "${mem} GB"
+        memory: "~{mem} GB"
     }
  }
