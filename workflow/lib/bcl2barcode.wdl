@@ -3,14 +3,14 @@ version 1.0
 workflow bcl2barcode {
     input {
         String runDirectory
-        String lane
+        Array[Int] lanes
         String basesMask
     }
 
     call generateIndexFastqs {
         input:
             runDirectory = runDirectory,
-            lane = lane,
+            lanes = lanes,
             basesMask = basesMask
     }
     if(defined(generateIndexFastqs.index2)) {
@@ -35,8 +35,8 @@ task generateIndexFastqs {
     input {
         Int? mem = 32
         String? bcl2fastq = "bcl2fastq"
-        String runDirectory
-        String lane
+        String runDirectory # TODO: switch to "Directory" when Cromwell supports Directory symlink localization
+        Array[Int] lanes
         String basesMask
         String? modules = "bcl2fastq/2.20.0.422"
     }
@@ -51,7 +51,7 @@ task generateIndexFastqs {
         --output-dir "~{outputDirectory}" \
         --create-fastq-for-index-reads \
         --sample-sheet "/dev/null" \
-        --tiles "s_~{lane}" \
+        --tiles "s_[~{sep='' lanes}]" \
         --use-bases-mask "~{basesMask}" \
         --no-lane-splitting \
         --interop-dir "~{outputDirectory}/Interop"
