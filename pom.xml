@@ -12,7 +12,6 @@
 
     <artifactId>bcl2barcode</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
 
     <properties>
         <workflow-description>Workflow to calculate barcode counts for a lane.</workflow-description>
