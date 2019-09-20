@@ -77,10 +77,16 @@ task generateIndexFastqs {
     command <<<
         zcat ~{index1} | \
         awk 'NR%4==2' | \
-        sort --buffer-size 8G --parallel=24 | \
-        uniq -c | \
+        awk '{
+                counts[$0]++
+        }
+
+        END {
+                for (i in counts) {
+                        print counts[i] "," i
+                }
+        }' | \
         sort -nr | \
-        awk '{ print $1 "," $2}' | \
         gzip -n > "counts.gz"
     >>>
 
@@ -102,10 +108,16 @@ task generateIndexFastqs {
 
     command <<<
         paste -d '-' <(zcat ~{index1} | awk 'NR%4==2') <(zcat ~{index2} | awk 'NR%4==2') | \
-        sort --buffer-size 8G --parallel=24 | \
-        uniq -c | \
+        awk '{
+                counts[$0]++
+        }
+
+        END {
+                for (i in counts) {
+                        print counts[i] "," i
+                }
+        }' | \
         sort -nr | \
-        awk '{ print $1 "," $2}' | \
         gzip -n > "counts.gz"
     >>>
 
