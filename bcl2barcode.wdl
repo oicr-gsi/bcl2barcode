@@ -71,11 +71,14 @@ task generateIndexFastqs {
  task countSingleIndex {
     input {
         Int? mem = 16
+        Int? cores = 16
         File index1
+        String? bgzip = "bgzip"
+        String? modules = "htslib/1.9"
     }
 
     command <<<
-        zcat ~{index1} | \
+        ~{bgzip} -@ ~{cores} -cd ~{index1} | \
         awk 'NR%4==2' | \
         awk '{
                 counts[$0]++
@@ -96,18 +99,25 @@ task generateIndexFastqs {
 
     runtime {
         memory: "~{mem} GB"
+        cores: "~{cores}"
+        modules: "~{modules}"
     }
  }
 
  task countDualIndex {
     input {
         Int? mem = 16
+        Int? cores = 16
         File index1
         File index2
+        String? bgzip = "bgzip"
+        String? modules = "htslib/1.9"
     }
 
     command <<<
-        paste -d '-' <(zcat ~{index1} | awk 'NR%4==2') <(zcat ~{index2} | awk 'NR%4==2') | \
+        paste -d '-' \
+        <(~{bgzip} -@ ~{ceil(cores/2)} -cd ~{index1} | awk 'NR%4==2') \
+        <(~{bgzip} -@ ~{floor(cores/2)} -cd ~{index2} | awk 'NR%4==2') | \
         awk '{
                 counts[$0]++
         }
@@ -127,5 +137,7 @@ task generateIndexFastqs {
 
     runtime {
         memory: "~{mem} GB"
+        cores: "~{cores}"
+        modules: "~{modules}"
     }
  }
