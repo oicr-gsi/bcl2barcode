@@ -16,6 +16,7 @@
     <properties>
         <workflow-description>Workflow to calculate barcode counts for a lane.</workflow-description>
         <wdl-workflow>bcl2barcode.wdl</wdl-workflow>
+        <test-basedir>tests/</test-basedir>
     </properties>
 
 </project>
