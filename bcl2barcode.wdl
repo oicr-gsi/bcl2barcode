@@ -5,6 +5,7 @@ workflow bcl2barcode {
         String runDirectory
         Array[Int] lanes
         String basesMask
+        String? outputFileNamePrefix
     }
 
     call generateIndexFastqs {
@@ -17,13 +18,15 @@ workflow bcl2barcode {
         call countDualIndex {
             input:
                 index1 = generateIndexFastqs.index1,
-                index2 = select_first([generateIndexFastqs.index2])
+                index2 = select_first([generateIndexFastqs.index2]),
+                outputFileNamePrefix = outputFileNamePrefix
         }
     }
     if(!defined(generateIndexFastqs.index2)){
         call countSingleIndex {
             input:
-                index1 = generateIndexFastqs.index1
+                index1 = generateIndexFastqs.index1,
+                outputFileNamePrefix = outputFileNamePrefix
         }
     }
     output {
@@ -73,6 +76,7 @@ task generateIndexFastqs {
         Int? mem = 16
         Int? cores = 16
         File index1
+        String? outputFileNamePrefix
         String? bgzip = "bgzip"
         String? modules = "htslib/1.9"
     }
@@ -90,11 +94,11 @@ task generateIndexFastqs {
                 }
         }' | \
         sort -nr | \
-        gzip -n > "counts.gz"
+        gzip -n > "~{outputFileNamePrefix}counts.gz"
     >>>
 
     output {
-        File counts = "counts.gz"
+        File counts = "~{outputFileNamePrefix}counts.gz"
     }
 
     runtime {
@@ -110,6 +114,7 @@ task generateIndexFastqs {
         Int? cores = 16
         File index1
         File index2
+        String? outputFileNamePrefix
         String? bgzip = "bgzip"
         String? modules = "htslib/1.9"
     }
@@ -128,11 +133,11 @@ task generateIndexFastqs {
                 }
         }' | \
         sort -nr | \
-        gzip -n > "counts.gz"
+        gzip -n > "~{outputFileNamePrefix}counts.gz"
     >>>
 
     output {
-        File counts = "counts.gz"
+        File counts = "~{outputFileNamePrefix}counts.gz"
     }
 
     runtime {
