@@ -99,7 +99,7 @@ task generateIndexFastqs {
 
     runtime {
         memory: "~{mem} GB"
-        cores: "~{cores}"
+        cpu: "~{cores}"
         modules: "~{modules}"
     }
  }
@@ -137,7 +137,7 @@ task generateIndexFastqs {
 
     runtime {
         memory: "~{mem} GB"
-        cores: "~{cores}"
+        cpu: "~{cores}"
         modules: "~{modules}"
     }
  }
