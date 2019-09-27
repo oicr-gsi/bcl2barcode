@@ -1,0 +1,332 @@
+digraph "workflow"
+{
+  compound=true;
+  "PORT1992801971" -> "PORT438151297" [style=dashed arrowhead=none]
+  "PORT2144644334" -> "PORT96039159"
+  "PORT1970073944" -> "PORT1964847681"
+  "PORT355885103" -> "PORT1007660652" [style=dashed arrowhead=none]
+  "PORT246826139" -> "PORT1572745406"
+  "PORT593447952" -> "PORT1846982837"
+  "PORT706665172" -> "PORT265348534" [style=dashed arrowhead=none]
+  "PORT1111379131" -> "PORT754527431"
+  "PORT438151297" -> "PORT1023996917"
+  "PORT1276544608" -> "PORT1380044647"
+  "PORT1971152916" -> "PORT144445623"
+  "PORT917568725" -> "PORT1324173038"
+  "PORT1007660652" -> "PORT1196963249"
+  "PORT355885103" -> "PORT1970073944" [style=dashed arrowhead=none]
+  "PORT1950136544" -> "PORT1321115948"
+  "PORT740007499" -> "PORT1135935001"
+  "PORT1060042118" -> "PORT820677667"
+  "PORT209360730" -> "PORT1153933106"
+  "PORT1340644388" -> "PORT788892554"
+  "PORT706665172" -> "PORT1635082651"
+  "PORT2144067911" -> "PORT1649847375"
+  "PORT488600086" -> "PORT635288507"
+  "PORT265348534" -> "PORT1387620926"
+  "PORT706665172" -> "PORT1687627235"
+  "PORT375097969" -> "PORT82275756"
+  "PORT1663488386" -> "PORT1902801188"
+  "PORT1650332494" -> "PORT295640874"
+  "PORT1681094402" -> "PORT1992801971"
+  "PORT1336775847" -> "PORT1998137093"
+  "PORT1324173038" -> "PORT1650332494" [style=dashed arrowhead=none]
+
+  
+  subgraph cluster_16 {
+    style="filled,solid";
+    fillcolor=lightskyblue1;
+    "NODE1822434669" [shape=plaintext label="String basesMask"]
+    "PORT1340644388" [shape=hexagon label="String basesMask"];
+  
+  
+  }
+  
+  subgraph cluster_15 {
+    style="filled,dashed";
+    fillcolor=white;
+    "NODE1972143064" [shape=plaintext label="String runDirectory = f(runDirectory)"]
+    "PORT740007499" [shape=hexagon label="String runDirectory"];
+    "PORT1572745406" [shape=oval label="String runDirectory"];
+  
+  
+  }
+  
+  subgraph cluster_20 {
+    style="filled,dashed";
+    fillcolor=white;
+    "NODE1280124872" [shape=plaintext label="Array[Int] lanes = f(lanes)"]
+    "PORT2144067911" [shape=hexagon label="Array[Int] lanes"];
+    "PORT96039159" [shape=oval label="Array[Int] lanes"];
+  
+  
+  }
+  
+  subgraph cluster_0 {
+    style="filled,solid";
+    fillcolor=lightskyblue1;
+    "NODE42820240" [shape=plaintext label="String runDirectory"]
+    "PORT246826139" [shape=hexagon label="String runDirectory"];
+  
+  
+  }
+  
+  subgraph cluster_13 {
+    style="filled,solid";
+    fillcolor=lightgray;
+    "NODE955611965" [shape=plaintext label="conditional"]
+    "PORT144445623" [shape=oval label="Boolean condition"];
+    "PORT1650332494" [shape=hexagon label="File? countDualIndex.counts"];
+    
+    subgraph cluster_12 {
+      style=filled;
+      fillcolor=white;
+      
+      subgraph cluster_7 {
+        style="filled,solid";
+        fillcolor=yellowgreen;
+        "NODE767511741" [shape=plaintext label="File countDualIndex.counts"]
+        "PORT1324173038" [shape=oval label="File countDualIndex.counts"];
+      
+      
+      }
+      
+      subgraph cluster_8 {
+        style="filled,dashed";
+        fillcolor=white;
+        "NODE1060519157" [shape=plaintext label="File index1 = f(generateIndexFastqs.index1)"]
+        "PORT1336775847" [shape=hexagon label="File index1"];
+        "PORT1196963249" [shape=oval label="File generateIndexFastqs.index1"];
+      
+      
+      }
+      
+      subgraph cluster_5 {
+        style="dashed";
+        fillcolor=blueviolet;
+        "NODE662925691" [shape=plaintext label="File generateIndexFastqs.index1"]
+        "PORT1007660652" [shape=hexagon label="File generateIndexFastqs.index1"];
+      
+      
+      }
+      
+      subgraph cluster_6 {
+        style="filled,dashed";
+        fillcolor=white;
+        "NODE1244880808" [shape=plaintext label="File index2 = f(generateIndexFastqs.index2)"]
+        "PORT1276544608" [shape=hexagon label="File index2"];
+        "PORT1387620926" [shape=oval label="File? generateIndexFastqs.index2"];
+      
+      
+      }
+      
+      subgraph cluster_10 {
+        style="dashed";
+        fillcolor=blueviolet;
+        "NODE1995952705" [shape=plaintext label="File? generateIndexFastqs.index2"]
+        "PORT265348534" [shape=hexagon label="File? generateIndexFastqs.index2"];
+      
+      
+      }
+      
+      subgraph cluster_11 {
+        style="filled,solid";
+        fillcolor=white;
+        "NODE1269773610" [shape=plaintext label="call bcl2barcode.countDualIndex (countDualIndex)"]
+        "PORT917568725" [shape=hexagon label="File countDualIndex.counts"];
+        "PORT1380044647" [shape=oval label="File index2"];
+        "PORT1902801188" [shape=oval label="Int? mem"];
+        "PORT1998137093" [shape=oval label="File index1"];
+      
+      
+      }
+      
+      subgraph cluster_9 {
+        style="filled,solid";
+        fillcolor=lightskyblue1;
+        "NODE58890945" [shape=plaintext label="Int? bcl2barcode.countDualIndex.mem = ..."]
+        "PORT1663488386" [shape=hexagon label="Int? bcl2barcode.countDualIndex.mem"];
+      
+      
+      }
+    
+    }
+  
+  }
+  
+  subgraph cluster_19 {
+    style="filled,solid";
+    fillcolor=palegreen;
+    "NODE1692375649" [shape=plaintext label="File counts"]
+    "PORT1434015813" [shape=hexagon label="File counts"];
+    "PORT1023996917" [shape=oval label="File? countSingleIndex.counts"];
+    "PORT295640874" [shape=oval label="File? countDualIndex.counts"];
+  
+  
+  }
+  
+  subgraph cluster_30 {
+    style="filled,solid";
+    fillcolor=lightskyblue1;
+    "NODE929706284" [shape=plaintext label="Array[Int] lanes"]
+    "PORT2144644334" [shape=hexagon label="Array[Int] lanes"];
+  
+  
+  }
+  
+  subgraph cluster_4 {
+    style="filled,dashed";
+    fillcolor=white;
+    "NODE1592840862" [shape=plaintext label="Boolean if_condition = f(generateIndexFastqs.index2)"]
+    "PORT1971152916" [shape=hexagon label="Boolean if_condition"];
+    "PORT1687627235" [shape=oval label="File? generateIndexFastqs.index2"];
+  
+  
+  }
+  
+  subgraph cluster_22 {
+    style="filled,dashed";
+    fillcolor=white;
+    "NODE733461760" [shape=plaintext label="String basesMask = f(basesMask)"]
+    "PORT593447952" [shape=hexagon label="String basesMask"];
+    "PORT788892554" [shape=oval label="String basesMask"];
+  
+  
+  }
+  
+  subgraph cluster_14 {
+    style="filled,solid";
+    fillcolor=lightskyblue1;
+    "NODE864326906" [shape=plaintext label="String? bcl2barcode.generateIndexFastqs.bcl2fastq = ..."]
+    "PORT1950136544" [shape=hexagon label="String? bcl2barcode.generateIndexFastqs.bcl2fastq"];
+  
+  
+  }
+  
+  subgraph cluster_1 {
+    style="filled,solid";
+    fillcolor=lightskyblue1;
+    "NODE95369743" [shape=plaintext label="Int? bcl2barcode.generateIndexFastqs.mem = ..."]
+    "PORT488600086" [shape=hexagon label="Int? bcl2barcode.generateIndexFastqs.mem"];
+  
+  
+  }
+  
+  subgraph cluster_3 {
+    style="filled,solid";
+    fillcolor=white;
+    "NODE248710794" [shape=plaintext label="call bcl2barcode.generateIndexFastqs (generateIndexFastqs)"]
+    "PORT355885103" [shape=hexagon label="File generateIndexFastqs.index1"];
+    "PORT1846982837" [shape=oval label="String basesMask"];
+    "PORT1649847375" [shape=oval label="Array[Int] lanes"];
+    "PORT1153933106" [shape=oval label="String? modules"];
+    "PORT1135935001" [shape=oval label="String runDirectory"];
+    "PORT635288507" [shape=oval label="Int? mem"];
+    "PORT1321115948" [shape=oval label="String? bcl2fastq"];
+    "PORT706665172" [shape=hexagon label="File? generateIndexFastqs.index2"];
+  
+  
+  }
+  
+  subgraph cluster_29 {
+    style="filled,solid";
+    fillcolor=lightgray;
+    "NODE1021565761" [shape=plaintext label="conditional"]
+    "PORT438151297" [shape=hexagon label="File? countSingleIndex.counts"];
+    "PORT82275756" [shape=oval label="Boolean condition"];
+    
+    subgraph cluster_28 {
+      style=filled;
+      fillcolor=white;
+      
+      subgraph cluster_25 {
+        style="filled,dashed";
+        fillcolor=white;
+        "NODE119112899" [shape=plaintext label="File index1 = f(generateIndexFastqs.index1)"]
+        "PORT1060042118" [shape=hexagon label="File index1"];
+        "PORT1964847681" [shape=oval label="File generateIndexFastqs.index1"];
+      
+      
+      }
+      
+      subgraph cluster_26 {
+        style="filled,solid";
+        fillcolor=yellowgreen;
+        "NODE662666707" [shape=plaintext label="File countSingleIndex.counts"]
+        "PORT1992801971" [shape=oval label="File countSingleIndex.counts"];
+      
+      
+      }
+      
+      subgraph cluster_23 {
+        style="filled,solid";
+        fillcolor=lightskyblue1;
+        "NODE375074687" [shape=plaintext label="Int? bcl2barcode.countSingleIndex.mem = ..."]
+        "PORT1111379131" [shape=hexagon label="Int? bcl2barcode.countSingleIndex.mem"];
+      
+      
+      }
+      
+      subgraph cluster_24 {
+        style="dashed";
+        fillcolor=blueviolet;
+        "NODE1768127248" [shape=plaintext label="File generateIndexFastqs.index1"]
+        "PORT1970073944" [shape=hexagon label="File generateIndexFastqs.index1"];
+      
+      
+      }
+      
+      subgraph cluster_27 {
+        style="filled,solid";
+        fillcolor=white;
+        "NODE1429616542" [shape=plaintext label="call bcl2barcode.countSingleIndex (countSingleIndex)"]
+        "PORT1681094402" [shape=hexagon label="File countSingleIndex.counts"];
+        "PORT754527431" [shape=oval label="Int? mem"];
+        "PORT820677667" [shape=oval label="File index1"];
+      
+      
+      }
+    
+    }
+  
+  }
+  
+  subgraph cluster_17 {
+    style="filled,solid";
+    fillcolor=lightskyblue1;
+    "NODE2031377754" [shape=plaintext label="String? bcl2barcode.generateIndexFastqs.modules = ..."]
+    "PORT209360730" [shape=hexagon label="String? bcl2barcode.generateIndexFastqs.modules"];
+  
+  
+  }
+  
+  subgraph cluster_21 {
+    style="filled,dashed";
+    fillcolor=white;
+    "NODE1367672657" [shape=plaintext label="Boolean if_condition = f(generateIndexFastqs.index2)"]
+    "PORT375097969" [shape=hexagon label="Boolean if_condition"];
+    "PORT1635082651" [shape=oval label="File? generateIndexFastqs.index2"];
+  
+  
+  }
+  
+  subgraph cluster_18 {
+    style="filled,solid";
+    fillcolor=lightskyblue1;
+    "NODE58890945" [shape=plaintext label="Int? bcl2barcode.countDualIndex.mem = ..."]
+    "PORT1663488386" [shape=hexagon label="Int? bcl2barcode.countDualIndex.mem"];
+  
+  
+  }
+  
+  subgraph cluster_2 {
+    style="filled,solid";
+    fillcolor=lightskyblue1;
+    "NODE375074687" [shape=plaintext label="Int? bcl2barcode.countSingleIndex.mem = ..."]
+    "PORT1111379131" [shape=hexagon label="Int? bcl2barcode.countSingleIndex.mem"];
+  
+  
+  }
+
+}
+
