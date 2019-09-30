@@ -1,0 +1,91 @@
+{
+  "defaults": {
+    "description": "bcl2barcode workflow test",
+    "metrics_calculate": "calculate.sh",
+    "metrics_compare": "compare.sh",
+    "output_metrics_dir": "/.mounts/labs/PDE/data/RegressionTests/bcl2barcode/workflow/development/output_expectation/",
+    "parameters": {
+      "wdl_options": {
+        "write_to_cache": false,
+        "read_from_cache": false
+      }
+    }
+  },
+  "tests": [
+    {
+      "id": "150928_SN346_0594_AHCTWGBCXX",
+      "parameters": {
+        "wdl_inputs": {
+          "bcl2barcode.runDirectory": "/.mounts/labs/PDE/data/testdata/runs/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+          "bcl2barcode.lanes": [
+            1,
+            2
+          ],
+          "bcl2barcode.basesMask": "y1n*,i*,n*"
+        }
+      }
+    },
+    {
+      "id": "OverrideBcl2fastqPath",
+      "parameters": {
+        "wdl_inputs": {
+          "bcl2barcode.runDirectory": "/.mounts/labs/PDE/data/testdata/runs/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+          "bcl2barcode.lanes": [
+            1,
+            2
+          ],
+          "bcl2barcode.basesMask": "y1n*,i*,n*",
+          "bcl2barcode.generateIndexFastqs.bcl2fastq": "/.mounts/labs/gsi/modulator/sw/Ubuntu18.04/bcl2fastq-2.20.0.422/bin/bcl2fastq"
+        }
+      }
+    },
+    {
+      "id": "OverrideBcl2fastqModule",
+      "parameters": {
+        "wdl_inputs": {
+          "bcl2barcode.runDirectory": "/.mounts/labs/PDE/data/testdata/runs/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+          "bcl2barcode.lanes": [
+            1,
+            2
+          ],
+          "bcl2barcode.basesMask": "y1n*,i*,n*",
+          "bcl2barcode.generateIndexFastqs.modules": "bcl2fastq/2.18.0.12"
+        }
+      }
+    },
+    {
+      "id": "DualBarcodeTest",
+      "parameters": {
+        "wdl_inputs": {
+          "bcl2barcode.runDirectory": "/.mounts/labs/PDE/data/testdata/runs/basespace/NextSeq/150114_NS500141_0187_AH2GN7AFXX",
+          "bcl2barcode.lanes": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "bcl2barcode.basesMask": "y1n*,i*,i*,n*"
+        }
+      }
+    },
+    {
+      "id": "TestOutputFileNamePrefix",
+      "parameters": {
+        "wdl_inputs": {
+          "bcl2barcode.runDirectory": "/.mounts/labs/PDE/data/testdata/runs/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+          "bcl2barcode.lanes": [
+            1,
+            2
+          ],
+          "bcl2barcode.basesMask": "y1n*,i*,n*",
+          "bcl2barcode.outputFileNamePrefix": "150928_SN346_0594_AHCTWGBCXX_lane_1+2_"
+        }
+      }
+    }
+  ]
+}
+
+
+
+
+
