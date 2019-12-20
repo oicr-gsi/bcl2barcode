@@ -42,6 +42,7 @@ task generateIndexFastqs {
     Array[Int] lanes
     String basesMask
     String? modules = "bcl2fastq/2.20.0.422"
+    Int timeout = 6
   }
 
   String outputDirectory = "out"
@@ -68,6 +69,7 @@ task generateIndexFastqs {
   runtime {
     memory: "~{mem} GB"
     modules: "~{modules}"
+    timeout: "~{timeout}"
   }
 }
 
@@ -79,6 +81,7 @@ task generateIndexFastqs {
     String? outputFileNamePrefix
     String? bgzip = "bgzip"
     String? modules = "htslib/1.9"
+    Int timeout = 6
   }
 
   command <<<
@@ -105,6 +108,7 @@ task generateIndexFastqs {
     memory: "~{mem} GB"
     cpu: "~{cores}"
     modules: "~{modules}"
+    timeout: "~{timeout}"
   }
 }
 
@@ -117,6 +121,7 @@ task generateIndexFastqs {
     String? outputFileNamePrefix
     String? bgzip = "bgzip"
     String? modules = "htslib/1.9"
+    Int timeout = 6
   }
 
   command <<<
@@ -144,5 +149,6 @@ task generateIndexFastqs {
     memory: "~{mem} GB"
     cpu: "~{cores}"
     modules: "~{modules}"
+    timeout: "~{timeout}"
   }
 }
