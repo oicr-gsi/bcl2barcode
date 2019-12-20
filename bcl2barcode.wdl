@@ -29,19 +29,46 @@ workflow bcl2barcode {
         outputFileNamePrefix = outputFileNamePrefix
     }
   }
+
   output {
     File counts = select_first([countSingleIndex.counts, countDualIndex.counts])
+  }
+
+  parameter_meta {
+    runDirectory: "Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE)."
+    lanes: "A single lane or a list of lanes for no lane splitting (merging lanes)."
+    basesMask: "The bases mask to produce the index reads (e.g. single 8bp index = \"Y1N*,I8,N*\", dual 8bp index = \"Y1N*,I8,I8,N*\")."
+    outputFileNamePrefix: "Output prefix to prefix output file names with."
+  }
+
+  meta {
+    author: "Michael Laszloffy"
+    email: "michael.laszloffy@oicr.on.ca"
+    description: "bcl2barcode produces index (barcode) counts for all reads in a lane or set of lanes."
+    dependencies: [
+      {
+        name: "bcl2fastq/2.20.0.422",
+        url: "https://support.illumina.com/sequencing/sequencing_software/bcl2fastq-conversion-software.html"
+      },
+      {
+        name: "htslib/1.9",
+        url: "https://github.com/samtools/htslib"
+      }
+    ]
+    output_meta: {
+      counts: "Gzipped and sorted index counts in csv format (count,index)."
+    }
   }
 }
 
 task generateIndexFastqs {
   input {
-    Int? mem = 32
-    String? bcl2fastq = "bcl2fastq"
     String runDirectory # TODO: switch to "Directory" when Cromwell supports Directory symlink localization
     Array[Int] lanes
     String basesMask
-    String? modules = "bcl2fastq/2.20.0.422"
+    String bcl2fastq = "bcl2fastq"
+    String modules = "bcl2fastq/2.20.0.422"
+    Int mem = 32
     Int timeout = 6
   }
 
@@ -71,16 +98,33 @@ task generateIndexFastqs {
     modules: "~{modules}"
     timeout: "~{timeout}"
   }
+
+  parameter_meta {
+    runDirectory: "Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE)."
+    lanes: "A single lane or a list of lanes for no lane splitting (merging lanes)."
+    basesMask: "The bases mask to produce the index reads (e.g. single 8bp index = \"Y1N*,I8,N*\", dual 8bp index = \"Y1N*,I8,I8,N*\")."
+    bcl2fastq: "bcl2fastq binary name or path to bcl2fastq."
+    modules: "Environment module name and version to load (space separated) before command execution."
+    mem: "Memory (in GB) to allocate to the job."
+    timeout: "Maximum amount of time (in hours) the task can run for."
+  }
+
+  meta {
+    output_meta: {
+      index1: "Index 1 fastq.gz.",
+      index2: "Index 2 fastq.gz (if \"basesMask\" has specified a second index)."
+    }
+  }
 }
 
  task countSingleIndex {
   input {
-    Int? mem = 16
-    Int? cores = 16
     File index1
     String? outputFileNamePrefix
-    String? bgzip = "bgzip"
-    String? modules = "htslib/1.9"
+    String bgzip = "bgzip"
+    String modules = "htslib/1.9"
+    Int mem = 16
+    Int cores = 16
     Int timeout = 6
   }
 
@@ -110,17 +154,33 @@ task generateIndexFastqs {
     modules: "~{modules}"
     timeout: "~{timeout}"
   }
+
+  parameter_meta {
+    index1: "First index fastq.gz of a single index run to perform counting on."
+    outputFileNamePrefix: "Output prefix to prefix output file names with."
+    bgzip: "bgzip binary name or path to bgzip."
+    modules: "Environment module name and version to load (space separated) before command execution."
+    mem: "Memory (in GB) to allocate to the job."
+    cores: "The number of cores to allocate to the job."
+    timeout: "Maximum amount of time (in hours) the task can run for."
+  }
+
+  meta {
+    output_meta: {
+      counts: "Gzipped and sorted index counts in csv format (count,index)."
+    }
+  }
 }
 
  task countDualIndex {
   input {
-    Int? mem = 16
-    Int? cores = 16
     File index1
     File index2
     String? outputFileNamePrefix
-    String? bgzip = "bgzip"
-    String? modules = "htslib/1.9"
+    String bgzip = "bgzip"
+    String modules = "htslib/1.9"
+    Int mem = 16
+    Int cores = 16
     Int timeout = 6
   }
 
@@ -150,5 +210,22 @@ task generateIndexFastqs {
     cpu: "~{cores}"
     modules: "~{modules}"
     timeout: "~{timeout}"
+  }
+
+  parameter_meta {
+    index1: "First index fastq.gz of a dual index run to perform counting on."
+    index2: "Second index fastq.gz of a dual index run to perform counting on."
+    outputFileNamePrefix: "Output prefix to prefix output file names with."
+    bgzip: "bgzip binary name or path to bgzip."
+    modules: "Environment module name and version to load (space separated) before command execution."
+    mem: "Memory (in GB) to allocate to the job."
+    cores: "The number of cores to allocate to the job."
+    timeout: "Maximum amount of time (in hours) the task can run for."
+  }
+
+  meta {
+    output_meta: {
+      counts: "Gzipped and sorted index counts in csv format (count,index)."
+    }
   }
 }
