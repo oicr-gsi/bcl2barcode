@@ -3,7 +3,7 @@
     "description": "bcl2barcode workflow test",
     "metrics_calculate": "calculate.sh",
     "metrics_compare": "compare.sh",
-    "output_metrics_dir": "/.mounts/labs/PDE/data/RegressionTests/bcl2barcode/workflow/development/output_expectation/",
+    "output_metrics_dir": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/",
     "parameters": {
       "wdl_options": {
         "write_to_cache": false,
@@ -16,7 +16,7 @@
       "id": "150928_SN346_0594_AHCTWGBCXX",
       "parameters": {
         "wdl_inputs": {
-          "bcl2barcode.runDirectory": "/.mounts/labs/PDE/data/testdata/runs/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+          "bcl2barcode.runDirectory": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
           "bcl2barcode.lanes": [
             1,
             2
@@ -29,7 +29,7 @@
       "id": "OverrideBcl2fastqPath",
       "parameters": {
         "wdl_inputs": {
-          "bcl2barcode.runDirectory": "/.mounts/labs/PDE/data/testdata/runs/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+          "bcl2barcode.runDirectory": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
           "bcl2barcode.lanes": [
             1,
             2
@@ -43,7 +43,7 @@
       "id": "OverrideBcl2fastqModule",
       "parameters": {
         "wdl_inputs": {
-          "bcl2barcode.runDirectory": "/.mounts/labs/PDE/data/testdata/runs/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+          "bcl2barcode.runDirectory": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
           "bcl2barcode.lanes": [
             1,
             2
@@ -57,7 +57,7 @@
       "id": "DualBarcodeTest",
       "parameters": {
         "wdl_inputs": {
-          "bcl2barcode.runDirectory": "/.mounts/labs/PDE/data/testdata/runs/basespace/NextSeq/150114_NS500141_0187_AH2GN7AFXX",
+          "bcl2barcode.runDirectory": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/NextSeq/150114_NS500141_0187_AH2GN7AFXX",
           "bcl2barcode.lanes": [
             1,
             2,
@@ -72,7 +72,7 @@
       "id": "TestOutputFileNamePrefix",
       "parameters": {
         "wdl_inputs": {
-          "bcl2barcode.runDirectory": "/.mounts/labs/PDE/data/testdata/runs/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+          "bcl2barcode.runDirectory": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
           "bcl2barcode.lanes": [
             1,
             2
