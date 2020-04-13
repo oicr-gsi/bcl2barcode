@@ -26,6 +26,30 @@
       }
     },
     {
+      "id": "150928_SN346_0594_AHCTWGBCXX_lane_1",
+      "parameters": {
+        "wdl_inputs": {
+          "bcl2barcode.runDirectory": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+          "bcl2barcode.lanes": [
+            1
+          ],
+          "bcl2barcode.basesMask": "y1n*,i*,n*"
+        }
+      }
+    },
+    {
+      "id": "150928_SN346_0594_AHCTWGBCXX_lane_2",
+      "parameters": {
+        "wdl_inputs": {
+          "bcl2barcode.runDirectory": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+          "bcl2barcode.lanes": [
+            2
+          ],
+          "bcl2barcode.basesMask": "y1n*,i*,n*"
+        }
+      }
+    },
+    {
       "id": "OverrideBcl2fastqPath",
       "parameters": {
         "wdl_inputs": {
