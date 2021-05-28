@@ -1,0 +1,401 @@
+[
+    {
+        "arguments": {
+            "bcl2barcode.basesMask": "y1n*,i*,n*",
+            "bcl2barcode.countDualIndex.bgzip": null,
+            "bcl2barcode.countDualIndex.cores": null,
+            "bcl2barcode.countDualIndex.mem": null,
+            "bcl2barcode.countDualIndex.modules": null,
+            "bcl2barcode.countDualIndex.timeout": null,
+            "bcl2barcode.countSingleIndex.bgzip": null,
+            "bcl2barcode.countSingleIndex.cores": null,
+            "bcl2barcode.countSingleIndex.mem": null,
+            "bcl2barcode.countSingleIndex.modules": null,
+            "bcl2barcode.countSingleIndex.timeout": null,
+            "bcl2barcode.generateIndexFastqs.bcl2fastq": null,
+            "bcl2barcode.generateIndexFastqs.mem": null,
+            "bcl2barcode.generateIndexFastqs.modules": null,
+            "bcl2barcode.generateIndexFastqs.timeout": null,
+            "bcl2barcode.lanes": [
+                1,
+                2
+            ],
+            "bcl2barcode.outputFileNamePrefix": null,
+            "bcl2barcode.runDirectory": {
+                "contents": {
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+                    "externalIds": [
+                        {
+                            "id": "TEST",
+                            "provider": "TEST"
+                        }
+                    ]
+                },
+                "type": "EXTERNAL"
+            }
+        },
+        "description": "bcl2barcode workflow test",
+        "engineArguments": {},
+        "id": "150928_SN346_0594_AHCTWGBCXX",
+        "metadata": {
+            "bcl2barcode.counts": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_150928_SN346_0594_AHCTWGBCXX_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/150928_SN346_0594_AHCTWGBCXX.metrics",
+                "type": "script"
+            }
+        ]
+    },
+    {
+        "arguments": {
+            "bcl2barcode.basesMask": "y1n*,i*,n*",
+            "bcl2barcode.countDualIndex.bgzip": null,
+            "bcl2barcode.countDualIndex.cores": null,
+            "bcl2barcode.countDualIndex.mem": null,
+            "bcl2barcode.countDualIndex.modules": null,
+            "bcl2barcode.countDualIndex.timeout": null,
+            "bcl2barcode.countSingleIndex.bgzip": null,
+            "bcl2barcode.countSingleIndex.cores": null,
+            "bcl2barcode.countSingleIndex.mem": null,
+            "bcl2barcode.countSingleIndex.modules": null,
+            "bcl2barcode.countSingleIndex.timeout": null,
+            "bcl2barcode.generateIndexFastqs.bcl2fastq": null,
+            "bcl2barcode.generateIndexFastqs.mem": null,
+            "bcl2barcode.generateIndexFastqs.modules": null,
+            "bcl2barcode.generateIndexFastqs.timeout": null,
+            "bcl2barcode.lanes": [
+                1
+            ],
+            "bcl2barcode.outputFileNamePrefix": null,
+            "bcl2barcode.runDirectory": {
+                "contents": {
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+                    "externalIds": [
+                        {
+                            "id": "TEST",
+                            "provider": "TEST"
+                        }
+                    ]
+                },
+                "type": "EXTERNAL"
+            }
+        },
+        "description": "bcl2barcode workflow test",
+        "engineArguments": {},
+        "id": "150928_SN346_0594_AHCTWGBCXX_lane_1",
+        "metadata": {
+            "bcl2barcode.counts": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_150928_SN346_0594_AHCTWGBCXX_lane_1_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/150928_SN346_0594_AHCTWGBCXX_lane_1.metrics",
+                "type": "script"
+            }
+        ]
+    },
+    {
+        "arguments": {
+            "bcl2barcode.basesMask": "y1n*,i*,n*",
+            "bcl2barcode.countDualIndex.bgzip": null,
+            "bcl2barcode.countDualIndex.cores": null,
+            "bcl2barcode.countDualIndex.mem": null,
+            "bcl2barcode.countDualIndex.modules": null,
+            "bcl2barcode.countDualIndex.timeout": null,
+            "bcl2barcode.countSingleIndex.bgzip": null,
+            "bcl2barcode.countSingleIndex.cores": null,
+            "bcl2barcode.countSingleIndex.mem": null,
+            "bcl2barcode.countSingleIndex.modules": null,
+            "bcl2barcode.countSingleIndex.timeout": null,
+            "bcl2barcode.generateIndexFastqs.bcl2fastq": null,
+            "bcl2barcode.generateIndexFastqs.mem": null,
+            "bcl2barcode.generateIndexFastqs.modules": null,
+            "bcl2barcode.generateIndexFastqs.timeout": null,
+            "bcl2barcode.lanes": [
+                2
+            ],
+            "bcl2barcode.outputFileNamePrefix": null,
+            "bcl2barcode.runDirectory": {
+                "contents": {
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+                    "externalIds": [
+                        {
+                            "id": "TEST",
+                            "provider": "TEST"
+                        }
+                    ]
+                },
+                "type": "EXTERNAL"
+            }
+        },
+        "description": "bcl2barcode workflow test",
+        "engineArguments": {},
+        "id": "150928_SN346_0594_AHCTWGBCXX_lane_2",
+        "metadata": {
+            "bcl2barcode.counts": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_150928_SN346_0594_AHCTWGBCXX_lane_2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/150928_SN346_0594_AHCTWGBCXX_lane_2.metrics",
+                "type": "script"
+            }
+        ]
+    },
+    {
+        "arguments": {
+            "bcl2barcode.basesMask": "y1n*,i*,n*",
+            "bcl2barcode.countDualIndex.bgzip": null,
+            "bcl2barcode.countDualIndex.cores": null,
+            "bcl2barcode.countDualIndex.mem": null,
+            "bcl2barcode.countDualIndex.modules": null,
+            "bcl2barcode.countDualIndex.timeout": null,
+            "bcl2barcode.countSingleIndex.bgzip": null,
+            "bcl2barcode.countSingleIndex.cores": null,
+            "bcl2barcode.countSingleIndex.mem": null,
+            "bcl2barcode.countSingleIndex.modules": null,
+            "bcl2barcode.countSingleIndex.timeout": null,
+            "bcl2barcode.generateIndexFastqs.bcl2fastq": "/.mounts/labs/gsi/modulator/sw/Ubuntu18.04/bcl2fastq-2.20.0.422/bin/bcl2fastq",
+            "bcl2barcode.generateIndexFastqs.mem": null,
+            "bcl2barcode.generateIndexFastqs.modules": null,
+            "bcl2barcode.generateIndexFastqs.timeout": null,
+            "bcl2barcode.lanes": [
+                1,
+                2
+            ],
+            "bcl2barcode.outputFileNamePrefix": null,
+            "bcl2barcode.runDirectory": {
+                "contents": {
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+                    "externalIds": [
+                        {
+                            "id": "TEST",
+                            "provider": "TEST"
+                        }
+                    ]
+                },
+                "type": "EXTERNAL"
+            }
+        },
+        "description": "bcl2barcode workflow test",
+        "engineArguments": {},
+        "id": "OverrideBcl2fastqPath",
+        "metadata": {
+            "bcl2barcode.counts": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_OverrideBcl2fastqPath_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/OverrideBcl2fastqPath.metrics",
+                "type": "script"
+            }
+        ]
+    },
+    {
+        "arguments": {
+            "bcl2barcode.basesMask": "y1n*,i*,n*",
+            "bcl2barcode.countDualIndex.bgzip": null,
+            "bcl2barcode.countDualIndex.cores": null,
+            "bcl2barcode.countDualIndex.mem": null,
+            "bcl2barcode.countDualIndex.modules": null,
+            "bcl2barcode.countDualIndex.timeout": null,
+            "bcl2barcode.countSingleIndex.bgzip": null,
+            "bcl2barcode.countSingleIndex.cores": null,
+            "bcl2barcode.countSingleIndex.mem": null,
+            "bcl2barcode.countSingleIndex.modules": null,
+            "bcl2barcode.countSingleIndex.timeout": null,
+            "bcl2barcode.generateIndexFastqs.bcl2fastq": null,
+            "bcl2barcode.generateIndexFastqs.mem": null,
+            "bcl2barcode.generateIndexFastqs.modules": "bcl2fastq/2.18.0.12",
+            "bcl2barcode.generateIndexFastqs.timeout": null,
+            "bcl2barcode.lanes": [
+                1,
+                2
+            ],
+            "bcl2barcode.outputFileNamePrefix": null,
+            "bcl2barcode.runDirectory": {
+                "contents": {
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+                    "externalIds": [
+                        {
+                            "id": "TEST",
+                            "provider": "TEST"
+                        }
+                    ]
+                },
+                "type": "EXTERNAL"
+            }
+        },
+        "description": "bcl2barcode workflow test",
+        "engineArguments": {},
+        "id": "OverrideBcl2fastqModule",
+        "metadata": {
+            "bcl2barcode.counts": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_OverrideBcl2fastqModule_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/OverrideBcl2fastqModule.metrics",
+                "type": "script"
+            }
+        ]
+    },
+    {
+        "arguments": {
+            "bcl2barcode.basesMask": "y1n*,i*,i*,n*",
+            "bcl2barcode.countDualIndex.bgzip": null,
+            "bcl2barcode.countDualIndex.cores": null,
+            "bcl2barcode.countDualIndex.mem": null,
+            "bcl2barcode.countDualIndex.modules": null,
+            "bcl2barcode.countDualIndex.timeout": null,
+            "bcl2barcode.countSingleIndex.bgzip": null,
+            "bcl2barcode.countSingleIndex.cores": null,
+            "bcl2barcode.countSingleIndex.mem": null,
+            "bcl2barcode.countSingleIndex.modules": null,
+            "bcl2barcode.countSingleIndex.timeout": null,
+            "bcl2barcode.generateIndexFastqs.bcl2fastq": null,
+            "bcl2barcode.generateIndexFastqs.mem": null,
+            "bcl2barcode.generateIndexFastqs.modules": null,
+            "bcl2barcode.generateIndexFastqs.timeout": null,
+            "bcl2barcode.lanes": [
+                1,
+                2,
+                3,
+                4
+            ],
+            "bcl2barcode.outputFileNamePrefix": null,
+            "bcl2barcode.runDirectory": {
+                "contents": {
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/NextSeq/150114_NS500141_0187_AH2GN7AFXX",
+                    "externalIds": [
+                        {
+                            "id": "TEST",
+                            "provider": "TEST"
+                        }
+                    ]
+                },
+                "type": "EXTERNAL"
+            }
+        },
+        "description": "bcl2barcode workflow test",
+        "engineArguments": {},
+        "id": "DualBarcodeTest",
+        "metadata": {
+            "bcl2barcode.counts": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_DualBarcodeTest_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/DualBarcodeTest.metrics",
+                "type": "script"
+            }
+        ]
+    },
+    {
+        "arguments": {
+            "bcl2barcode.basesMask": "y1n*,i*,n*",
+            "bcl2barcode.countDualIndex.bgzip": null,
+            "bcl2barcode.countDualIndex.cores": null,
+            "bcl2barcode.countDualIndex.mem": null,
+            "bcl2barcode.countDualIndex.modules": null,
+            "bcl2barcode.countDualIndex.timeout": null,
+            "bcl2barcode.countSingleIndex.bgzip": null,
+            "bcl2barcode.countSingleIndex.cores": null,
+            "bcl2barcode.countSingleIndex.mem": null,
+            "bcl2barcode.countSingleIndex.modules": null,
+            "bcl2barcode.countSingleIndex.timeout": null,
+            "bcl2barcode.generateIndexFastqs.bcl2fastq": null,
+            "bcl2barcode.generateIndexFastqs.mem": null,
+            "bcl2barcode.generateIndexFastqs.modules": null,
+            "bcl2barcode.generateIndexFastqs.timeout": null,
+            "bcl2barcode.lanes": [
+                1,
+                2
+            ],
+            "bcl2barcode.outputFileNamePrefix": "150928_SN346_0594_AHCTWGBCXX_lane_1+2_",
+            "bcl2barcode.runDirectory": {
+                "contents": {
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+                    "externalIds": [
+                        {
+                            "id": "TEST",
+                            "provider": "TEST"
+                        }
+                    ]
+                },
+                "type": "EXTERNAL"
+            }
+        },
+        "description": "bcl2barcode workflow test",
+        "engineArguments": {},
+        "id": "TestOutputFileNamePrefix",
+        "metadata": {
+            "bcl2barcode.counts": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_TestOutputFileNamePrefix_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/TestOutputFileNamePrefix.metrics",
+                "type": "script"
+            }
+        ]
+    }
+]

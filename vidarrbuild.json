@@ -1,0 +1,6 @@
+{
+    "names": [
+        "bcl2barcode"
+    ],
+    "wdl": "bcl2barcode.wdl"
+}
