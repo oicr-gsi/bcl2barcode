@@ -35,7 +35,10 @@ workflow bcl2barcode {
   }
 
   parameter_meta {
-    runDirectory: "Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE)."
+    runDirectory: {
+      description: "Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE).",
+      vidarr_type: "directory"
+    }
     lanes: "A single lane or a list of lanes for no lane splitting (merging lanes)."
     basesMask: "The bases mask to produce the index reads (e.g. single 8bp index = \"Y1N*,I8,N*\", dual 8bp index = \"Y1N*,I8,I8,N*\")."
     outputFileNamePrefix: "Output prefix to prefix output file names with."
