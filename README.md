@@ -64,8 +64,6 @@ Output | Type | Description
  
  * Running bcl2barcode
  
- === Description here ===.
- 
  ### Generate index fastq file(s)
  <<<
      ~{bcl2fastq} \
@@ -142,7 +140,7 @@ mvn clean verify \
 ```
 
 
- ## Support
+## Support
 
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 
