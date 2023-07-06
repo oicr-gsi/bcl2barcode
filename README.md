@@ -22,7 +22,7 @@ java -jar cromwell.jar run bcl2barcode.wdl --inputs inputs.json
 #### Required workflow parameters:
 Parameter|Value|Description
 ---|---|---
-`runDirectory`|String|Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE).
+`runDirectory`|String|{'description': 'Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE).', 'vidarr_type': 'directory'}
 `lanes`|Array[Int]|A single lane or a list of lanes for no lane splitting (merging lanes).
 `basesMask`|String|The bases mask to produce the index reads (e.g. single 8bp index = "Y1N*,I8,N*", dual 8bp index = "Y1N*,I8,I8,N*").
 
@@ -59,6 +59,64 @@ Output | Type | Description
 `counts`|File|Gzipped and sorted index counts in csv format (count,index).
 
 
+## Commands
+ This section lists command(s) run by bcl2barcode workflow
+ 
+ * Running bcl2barcode
+ 
+ === Description here ===.
+ 
+ ### Generate index fastq file(s)
+ <<<
+     ~{bcl2fastq} \
+     --runfolder-dir "~{runDirectory}" \
+     --intensities-dir "~{runDirectory}/Data/Intensities/" \
+     --processing-threads 8 \
+     --output-dir "~{outputDirectory}" \
+     --create-fastq-for-index-reads \
+     --sample-sheet "/dev/null" \
+     --tiles "s_[~{sep='' lanes}]" \
+     --use-bases-mask "~{basesMask}" \
+     --no-lane-splitting \
+     --interop-dir "~{outputDirectory}/Interop"
+   >>>
+ 
+ ### Output Gzipped and sorted index counts in csv format, for a single index run
+ <<<
+     ~{bgzip} -@ ~{cores} -cd ~{index1} | \
+     awk 'NR%4==2' | \
+     awk '{
+             counts[$0]++
+     }
+ 
+     END {
+             for (i in counts) {
+                     print counts[i] "," i
+             }
+     }' | \
+     sort -nr | \
+     gzip -n > "~{outputFileNamePrefix}counts.gz"
+   >>>
+ 
+ ### Output Gzipped and sorted index counts in csv format, for a dual index run
+ <<<
+     paste -d '-' \
+     <(~{bgzip} -@ ~{ceil(cores/2)} -cd ~{index1} | awk 'NR%4==2') \
+     <(~{bgzip} -@ ~{floor(cores/2)} -cd ~{index2} | awk 'NR%4==2') | \
+     awk '{
+             counts[$0]++
+     }
+ 
+     END {
+             for (i in counts) {
+                     print counts[i] "," i
+             }
+     }' | \
+     sort -nr | \
+     gzip -n > "~{outputFileNamePrefix}counts.gz"
+   >>>
+
+
 ## Niassa + Cromwell
 
 This WDL workflow is wrapped in a Niassa workflow (https://github.com/oicr-gsi/pipedev/tree/master/pipedev-niassa-cromwell-workflow) so that it can used with the Niassa metadata tracking system (https://github.com/oicr-gsi/niassa).
@@ -83,7 +141,8 @@ mvn clean verify \
 -Dcromwell-host=http://cromwell-url:8000
 ```
 
-## Support
+
+ ## Support
 
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 
