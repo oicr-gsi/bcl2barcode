@@ -65,7 +65,7 @@ Output | Type | Description
  * Running bcl2barcode
  
  ### Generate index fastq file(s)
- <<<
+ ```
      ~{bcl2fastq} \
      --runfolder-dir "~{runDirectory}" \
      --intensities-dir "~{runDirectory}/Data/Intensities/" \
@@ -77,10 +77,10 @@ Output | Type | Description
      --use-bases-mask "~{basesMask}" \
      --no-lane-splitting \
      --interop-dir "~{outputDirectory}/Interop"
-   >>>
+ ```  
  
  ### Output Gzipped and sorted index counts in csv format, for a single index run
- <<<
+ ```
      ~{bgzip} -@ ~{cores} -cd ~{index1} | \
      awk 'NR%4==2' | \
      awk '{
@@ -94,10 +94,10 @@ Output | Type | Description
      }' | \
      sort -nr | \
      gzip -n > "~{outputFileNamePrefix}counts.gz"
-   >>>
+ ```
  
  ### Output Gzipped and sorted index counts in csv format, for a dual index run
- <<<
+ ```
      paste -d '-' \
      <(~{bgzip} -@ ~{ceil(cores/2)} -cd ~{index1} | awk 'NR%4==2') \
      <(~{bgzip} -@ ~{floor(cores/2)} -cd ~{index2} | awk 'NR%4==2') | \
@@ -112,7 +112,7 @@ Output | Type | Description
      }' | \
      sort -nr | \
      gzip -n > "~{outputFileNamePrefix}counts.gz"
-   >>>
+ ``` 
 
 
 ## Niassa + Cromwell
