@@ -64,7 +64,7 @@ Output | Type | Description
  
  * Running bcl2barcode
  
- ### Generate index fastq file(s)
+ #### Generate index fastq file(s)
  ```
      ~{bcl2fastq} \
      --runfolder-dir "~{runDirectory}" \
@@ -79,7 +79,7 @@ Output | Type | Description
      --interop-dir "~{outputDirectory}/Interop"
  ```  
  
- ### Output Gzipped and sorted index counts in csv format, for a single index run
+ #### Output Gzipped and sorted index counts in csv format, for a single index run
  ```
      ~{bgzip} -@ ~{cores} -cd ~{index1} | \
      awk 'NR%4==2' | \
@@ -96,7 +96,7 @@ Output | Type | Description
      gzip -n > "~{outputFileNamePrefix}counts.gz"
  ```
  
- ### Output Gzipped and sorted index counts in csv format, for a dual index run
+ #### Output Gzipped and sorted index counts in csv format, for a dual index run
  ```
      paste -d '-' \
      <(~{bgzip} -@ ~{ceil(cores/2)} -cd ~{index1} | awk 'NR%4==2') \
@@ -113,32 +113,6 @@ Output | Type | Description
      sort -nr | \
      gzip -n > "~{outputFileNamePrefix}counts.gz"
  ``` 
-
-
-## Niassa + Cromwell
-
-This WDL workflow is wrapped in a Niassa workflow (https://github.com/oicr-gsi/pipedev/tree/master/pipedev-niassa-cromwell-workflow) so that it can used with the Niassa metadata tracking system (https://github.com/oicr-gsi/niassa).
-
-* Building
-```
-mvn clean install
-```
-
-* Testing
-```
-mvn clean verify \
--Djava_opts="-Xmx1g -XX:+UseG1GC -XX:+UseStringDeduplication" \
--DrunTestThreads=2 \
--DskipITs=false \
--DskipRunITs=false \
--DworkingDirectory=/path/to/tmp/ \
--DschedulingHost=niassa_oozie_host \
--DwebserviceUrl=http://niassa-url:8080 \
--DwebserviceUser=niassa_user \
--DwebservicePassword=niassa_user_password \
--Dcromwell-host=http://cromwell-url:8000
-```
-
 
 ## Support
 
