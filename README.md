@@ -66,52 +66,40 @@ Output | Type | Description
  
  #### Generate index fastq file(s)
  ```
-     ~{bcl2fastq} \
-     --runfolder-dir "~{runDirectory}" \
-     --intensities-dir "~{runDirectory}/Data/Intensities/" \
+     BCL2FASTQ \
+     --runfolder-dir RUN_DIRECTORY \
+     --intensities-dir RUN_DIRECTORY/Data/Intensities/ \
      --processing-threads 8 \
-     --output-dir "~{outputDirectory}" \
+     --output-dir OUTPUT_DIRECTORY \
      --create-fastq-for-index-reads \
-     --sample-sheet "/dev/null" \
-     --tiles "s_[~{sep='' lanes}]" \
-     --use-bases-mask "~{basesMask}" \
+     --sample-sheet /dev/null \
+     --tiles s_LANES \
+     --use-bases-mask BASES_MASK \
      --no-lane-splitting \
-     --interop-dir "~{outputDirectory}/Interop"
+     --interop-dir OUTPUT_DIRECTORY/Interop
  ```  
  
  #### Output Gzipped and sorted index counts in csv format, for a single index run
  ```
-     ~{bgzip} -@ ~{cores} -cd ~{index1} | \
+     BGZIP_FILE -@ CORES -cd FASTQ_INDEX1 | \
      awk 'NR%4==2' | \
-     awk '{
-             counts[$0]++
-     }
+     awk COUNTS
  
-     END {
-             for (i in counts) {
-                     print counts[i] "," i
-             }
-     }' | \
+     END {for (i in COUNTS) {print COUNTS[i] "," i}}' | \
      sort -nr | \
-     gzip -n > "~{outputFileNamePrefix}counts.gz"
+     gzip -n > [OUTPUT_FILE_NAME_PREFIX]counts.gz
  ```
  
  #### Output Gzipped and sorted index counts in csv format, for a dual index run
  ```
      paste -d '-' \
-     <(~{bgzip} -@ ~{ceil(cores/2)} -cd ~{index1} | awk 'NR%4==2') \
-     <(~{bgzip} -@ ~{floor(cores/2)} -cd ~{index2} | awk 'NR%4==2') | \
-     awk '{
-             counts[$0]++
-     }
+     <(BGZIP_FILE -@ HALF_CORES_ROUNDED_UP -cd FASTQ_INDEX1 | awk 'NR%4==2') \
+     <(BGZIP_FILE -@ HALF_CORES_ROUNDED_DOWN -cd FASTQ_INDEX2 | awk 'NR%4==2') | \
+     awk COUNTS
  
-     END {
-             for (i in counts) {
-                     print counts[i] "," i
-             }
-     }' | \
+     END {for (i in COUNTS) {print COUNTS[i] "," i}}' | \
      sort -nr | \
-     gzip -n > "~{outputFileNamePrefix}counts.gz"
+     gzip -n > [OUTPUT_FILE_NAME_PREFIX]counts.gz"
  ``` 
 
 ## Support
