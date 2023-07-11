@@ -35,7 +35,10 @@
             }
         },
         "description": "bcl2barcode workflow test",
-        "engineArguments": {},
+        "engineArguments": {
+          "write_to_cache": false,
+          "read_from_cache": false
+        },
         "id": "150928_SN346_0594_AHCTWGBCXX",
         "metadata": {
             "bcl2barcode.counts": {
