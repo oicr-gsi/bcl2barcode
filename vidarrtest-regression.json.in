@@ -181,7 +181,7 @@
             "bcl2barcode.countSingleIndex.mem": null,
             "bcl2barcode.countSingleIndex.modules": null,
             "bcl2barcode.countSingleIndex.timeout": null,
-            "bcl2barcode.generateIndexFastqs.bcl2fastq": "/.mounts/labs/gsi/modulator/sw/Ubuntu18.04/bcl2fastq-2.20.0.422/bin/bcl2fastq",
+            "bcl2barcode.generateIndexFastqs.bcl2fastq": "/.mounts/labs/gsi/modulator/sw/Ubuntu20.04/bcl2fastq-2.20.0.422/bin/bcl2fastq",
             "bcl2barcode.generateIndexFastqs.mem": null,
             "bcl2barcode.generateIndexFastqs.modules": null,
             "bcl2barcode.generateIndexFastqs.timeout": null,
