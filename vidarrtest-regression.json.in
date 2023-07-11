@@ -94,7 +94,10 @@
             }
         },
         "description": "bcl2barcode workflow test",
-        "engineArguments": {},
+        "engineArguments": {
+          "write_to_cache": false,
+          "read_from_cache": false
+        },
         "id": "150928_SN346_0594_AHCTWGBCXX_lane_1",
         "metadata": {
             "bcl2barcode.counts": {
@@ -150,7 +153,10 @@
             }
         },
         "description": "bcl2barcode workflow test",
-        "engineArguments": {},
+        "engineArguments": {
+          "write_to_cache": false,
+          "read_from_cache": false
+        },
         "id": "150928_SN346_0594_AHCTWGBCXX_lane_2",
         "metadata": {
             "bcl2barcode.counts": {
@@ -207,7 +213,10 @@
             }
         },
         "description": "bcl2barcode workflow test",
-        "engineArguments": {},
+        "engineArguments": {
+          "write_to_cache": false,
+          "read_from_cache": false
+        },
         "id": "OverrideBcl2fastqPath",
         "metadata": {
             "bcl2barcode.counts": {
@@ -264,7 +273,10 @@
             }
         },
         "description": "bcl2barcode workflow test",
-        "engineArguments": {},
+        "engineArguments": {
+          "write_to_cache": false,
+          "read_from_cache": false
+        },
         "id": "OverrideBcl2fastqModule",
         "metadata": {
             "bcl2barcode.counts": {
@@ -323,7 +335,10 @@
             }
         },
         "description": "bcl2barcode workflow test",
-        "engineArguments": {},
+        "engineArguments": {
+          "write_to_cache": false,
+          "read_from_cache": false
+        },
         "id": "DualBarcodeTest",
         "metadata": {
             "bcl2barcode.counts": {
@@ -380,7 +395,10 @@
             }
         },
         "description": "bcl2barcode workflow test",
-        "engineArguments": {},
+        "engineArguments": {
+          "write_to_cache": false,
+          "read_from_cache": false
+        },
         "id": "TestOutputFileNamePrefix",
         "metadata": {
             "bcl2barcode.counts": {
