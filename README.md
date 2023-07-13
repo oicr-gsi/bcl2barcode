@@ -22,7 +22,7 @@ java -jar cromwell.jar run bcl2barcode.wdl --inputs inputs.json
 #### Required workflow parameters:
 Parameter|Value|Description
 ---|---|---
-`runDirectory`|String|Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE).
+`runDirectory`|String|{'description': 'Illumina run directory (e.g. /path/to/191219_M00000_0001_000000000-ABCDE).', 'vidarr_type': 'directory'}
 `lanes`|Array[Int]|A single lane or a list of lanes for no lane splitting (merging lanes).
 `basesMask`|String|The bases mask to produce the index reads (e.g. single 8bp index = "Y1N*,I8,N*", dual 8bp index = "Y1N*,I8,I8,N*").
 
@@ -59,29 +59,48 @@ Output | Type | Description
 `counts`|File|Gzipped and sorted index counts in csv format (count,index).
 
 
-## Niassa + Cromwell
-
-This WDL workflow is wrapped in a Niassa workflow (https://github.com/oicr-gsi/pipedev/tree/master/pipedev-niassa-cromwell-workflow) so that it can used with the Niassa metadata tracking system (https://github.com/oicr-gsi/niassa).
-
-* Building
-```
-mvn clean install
-```
-
-* Testing
-```
-mvn clean verify \
--Djava_opts="-Xmx1g -XX:+UseG1GC -XX:+UseStringDeduplication" \
--DrunTestThreads=2 \
--DskipITs=false \
--DskipRunITs=false \
--DworkingDirectory=/path/to/tmp/ \
--DschedulingHost=niassa_oozie_host \
--DwebserviceUrl=http://niassa-url:8080 \
--DwebserviceUser=niassa_user \
--DwebservicePassword=niassa_user_password \
--Dcromwell-host=http://cromwell-url:8000
-```
+## Commands
+ This section lists command(s) run by bcl2barcode workflow
+ 
+ * Running bcl2barcode
+ 
+ #### Generate index fastq file(s)
+ ```
+     BCL2FASTQ \
+     --runfolder-dir RUN_DIRECTORY \
+     --intensities-dir RUN_DIRECTORY/Data/Intensities/ \
+     --processing-threads 8 \
+     --output-dir OUTPUT_DIRECTORY \
+     --create-fastq-for-index-reads \
+     --sample-sheet /dev/null \
+     --tiles s_LANES \
+     --use-bases-mask BASES_MASK \
+     --no-lane-splitting \
+     --interop-dir OUTPUT_DIRECTORY/Interop
+ ```  
+ 
+ #### Output Gzipped and sorted index counts in csv format, for a single index run
+ ```
+     BGZIP_FILE -@ CORES -cd FASTQ_INDEX1 | \
+     awk 'NR%4==2' | \
+     awk COUNTS
+ 
+     END {for (i in COUNTS) {print COUNTS[i] "," i}}' | \
+     sort -nr | \
+     gzip -n > [OUTPUT_FILE_NAME_PREFIX]counts.gz
+ ```
+ 
+ #### Output Gzipped and sorted index counts in csv format, for a dual index run
+ ```
+     paste -d '-' \
+     <(BGZIP_FILE -@ HALF_CORES_ROUNDED_UP -cd FASTQ_INDEX1 | awk 'NR%4==2') \
+     <(BGZIP_FILE -@ HALF_CORES_ROUNDED_DOWN -cd FASTQ_INDEX2 | awk 'NR%4==2') | \
+     awk COUNTS
+ 
+     END {for (i in COUNTS) {print COUNTS[i] "," i}}' | \
+     sort -nr | \
+     gzip -n > [OUTPUT_FILE_NAME_PREFIX]counts.gz"
+ ``` 
 
 ## Support
 
