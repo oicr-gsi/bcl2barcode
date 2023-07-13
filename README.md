@@ -64,85 +64,45 @@ Output | Type | Description
  
  * Running bcl2barcode
  
- === Description here ===.
- 
- ### Generate index fastq file(s)
- <<<
-     ~{bcl2fastq} \
-     --runfolder-dir "~{runDirectory}" \
-     --intensities-dir "~{runDirectory}/Data/Intensities/" \
+ #### Generate index fastq file(s)
+ ```
+     BCL2FASTQ \
+     --runfolder-dir RUN_DIRECTORY \
+     --intensities-dir RUN_DIRECTORY/Data/Intensities/ \
      --processing-threads 8 \
-     --output-dir "~{outputDirectory}" \
+     --output-dir OUTPUT_DIRECTORY \
      --create-fastq-for-index-reads \
-     --sample-sheet "/dev/null" \
-     --tiles "s_[~{sep='' lanes}]" \
-     --use-bases-mask "~{basesMask}" \
+     --sample-sheet /dev/null \
+     --tiles s_LANES \
+     --use-bases-mask BASES_MASK \
      --no-lane-splitting \
-     --interop-dir "~{outputDirectory}/Interop"
-   >>>
+     --interop-dir OUTPUT_DIRECTORY/Interop
+ ```  
  
- ### Output Gzipped and sorted index counts in csv format, for a single index run
- <<<
-     ~{bgzip} -@ ~{cores} -cd ~{index1} | \
+ #### Output Gzipped and sorted index counts in csv format, for a single index run
+ ```
+     BGZIP_FILE -@ CORES -cd FASTQ_INDEX1 | \
      awk 'NR%4==2' | \
-     awk '{
-             counts[$0]++
-     }
+     awk COUNTS
  
-     END {
-             for (i in counts) {
-                     print counts[i] "," i
-             }
-     }' | \
+     END {for (i in COUNTS) {print COUNTS[i] "," i}}' | \
      sort -nr | \
-     gzip -n > "~{outputFileNamePrefix}counts.gz"
-   >>>
+     gzip -n > [OUTPUT_FILE_NAME_PREFIX]counts.gz
+ ```
  
- ### Output Gzipped and sorted index counts in csv format, for a dual index run
- <<<
+ #### Output Gzipped and sorted index counts in csv format, for a dual index run
+ ```
      paste -d '-' \
-     <(~{bgzip} -@ ~{ceil(cores/2)} -cd ~{index1} | awk 'NR%4==2') \
-     <(~{bgzip} -@ ~{floor(cores/2)} -cd ~{index2} | awk 'NR%4==2') | \
-     awk '{
-             counts[$0]++
-     }
+     <(BGZIP_FILE -@ HALF_CORES_ROUNDED_UP -cd FASTQ_INDEX1 | awk 'NR%4==2') \
+     <(BGZIP_FILE -@ HALF_CORES_ROUNDED_DOWN -cd FASTQ_INDEX2 | awk 'NR%4==2') | \
+     awk COUNTS
  
-     END {
-             for (i in counts) {
-                     print counts[i] "," i
-             }
-     }' | \
+     END {for (i in COUNTS) {print COUNTS[i] "," i}}' | \
      sort -nr | \
-     gzip -n > "~{outputFileNamePrefix}counts.gz"
-   >>>
+     gzip -n > [OUTPUT_FILE_NAME_PREFIX]counts.gz"
+ ``` 
 
-
-## Niassa + Cromwell
-
-This WDL workflow is wrapped in a Niassa workflow (https://github.com/oicr-gsi/pipedev/tree/master/pipedev-niassa-cromwell-workflow) so that it can used with the Niassa metadata tracking system (https://github.com/oicr-gsi/niassa).
-
-* Building
-```
-mvn clean install
-```
-
-* Testing
-```
-mvn clean verify \
--Djava_opts="-Xmx1g -XX:+UseG1GC -XX:+UseStringDeduplication" \
--DrunTestThreads=2 \
--DskipITs=false \
--DskipRunITs=false \
--DworkingDirectory=/path/to/tmp/ \
--DschedulingHost=niassa_oozie_host \
--DwebserviceUrl=http://niassa-url:8080 \
--DwebserviceUser=niassa_user \
--DwebservicePassword=niassa_user_password \
--Dcromwell-host=http://cromwell-url:8000
-```
-
-
- ## Support
+## Support
 
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 
