@@ -59,8 +59,11 @@ workflow bcl2barcode {
       }
     ]
     output_meta: {
-      counts: "Gzipped and sorted index counts in csv format (count,index)."
+    counts: {
+        description: "Gzipped and sorted index counts in csv format (count,index).",
+        vidarr_label: "counts"
     }
+}
   }
 }
 
