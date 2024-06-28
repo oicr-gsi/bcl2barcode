@@ -54,18 +54,18 @@ Parameter|Value|Default|Description
 
 ### Outputs
 
-Output | Type | Description
----|---|---
-`counts`|File|Gzipped and sorted index counts in csv format (count,index).
+Output | Type | Description | Labels
+---|---|---|---
+`counts`|File|Gzipped and sorted index counts in csv format (count,index).|vidarr_label: counts
 
 
 ## Commands
- This section lists command(s) run by bcl2barcode workflow
+This section lists command(s) run by bcl2barcode workflow
  
- * Running bcl2barcode
+* Running bcl2barcode
  
- #### Generate index fastq file(s)
- ```
+#### Generate index fastq file(s)
+```
      BCL2FASTQ \
      --runfolder-dir RUN_DIRECTORY \
      --intensities-dir RUN_DIRECTORY/Data/Intensities/ \
@@ -77,10 +77,10 @@ Output | Type | Description
      --use-bases-mask BASES_MASK \
      --no-lane-splitting \
      --interop-dir OUTPUT_DIRECTORY/Interop
- ```  
+```  
  
- #### Output Gzipped and sorted index counts in csv format, for a single index run
- ```
+#### Output Gzipped and sorted index counts in csv format, for a single index run
+```
      BGZIP_FILE -@ CORES -cd FASTQ_INDEX1 | \
      awk 'NR%4==2' | \
      awk COUNTS
@@ -88,10 +88,10 @@ Output | Type | Description
      END {for (i in COUNTS) {print COUNTS[i] "," i}}' | \
      sort -nr | \
      gzip -n > [OUTPUT_FILE_NAME_PREFIX]counts.gz
- ```
+```
  
- #### Output Gzipped and sorted index counts in csv format, for a dual index run
- ```
+#### Output Gzipped and sorted index counts in csv format, for a dual index run
+```
      paste -d '-' \
      <(BGZIP_FILE -@ HALF_CORES_ROUNDED_UP -cd FASTQ_INDEX1 | awk 'NR%4==2') \
      <(BGZIP_FILE -@ HALF_CORES_ROUNDED_DOWN -cd FASTQ_INDEX2 | awk 'NR%4==2') | \
@@ -100,7 +100,7 @@ Output | Type | Description
      END {for (i in COUNTS) {print COUNTS[i] "," i}}' | \
      sort -nr | \
      gzip -n > [OUTPUT_FILE_NAME_PREFIX]counts.gz"
- ``` 
+``` 
 
 ## Support
 
