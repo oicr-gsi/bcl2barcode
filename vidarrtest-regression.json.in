@@ -23,7 +23,7 @@
             "bcl2barcode.outputFileNamePrefix": null,
             "bcl2barcode.runDirectory": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/test_inputs/Test01",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -39,12 +39,12 @@
           "write_to_cache": false,
           "read_from_cache": false
         },
-        "id": "150928_SN346_0594_AHCTWGBCXX",
+        "id": "Test01",
         "metadata": {
             "bcl2barcode.counts": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_150928_SN346_0594_AHCTWGBCXX_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_Test01_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -54,7 +54,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/150928_SN346_0594_AHCTWGBCXX.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_metrics/workflow_test_01.metrics",
                 "type": "script"
             }
         ]
@@ -82,7 +82,7 @@
             "bcl2barcode.outputFileNamePrefix": null,
             "bcl2barcode.runDirectory": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/test_inputs/Test01",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -98,12 +98,12 @@
           "write_to_cache": false,
           "read_from_cache": false
         },
-        "id": "150928_SN346_0594_AHCTWGBCXX_lane_1",
+        "id": "Test01_lane_1",
         "metadata": {
             "bcl2barcode.counts": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_150928_SN346_0594_AHCTWGBCXX_lane_1_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_Test01_lane_1_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -113,7 +113,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/150928_SN346_0594_AHCTWGBCXX_lane_1.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_metrics/workflow_test_02.metrics",
                 "type": "script"
             }
         ]
@@ -141,7 +141,7 @@
             "bcl2barcode.outputFileNamePrefix": null,
             "bcl2barcode.runDirectory": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/test_inputs/Test01",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -157,12 +157,12 @@
           "write_to_cache": false,
           "read_from_cache": false
         },
-        "id": "150928_SN346_0594_AHCTWGBCXX_lane_2",
+        "id": "Test01_lane_2",
         "metadata": {
             "bcl2barcode.counts": {
                 "contents": [
                     {
-                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_150928_SN346_0594_AHCTWGBCXX_lane_2_@JENKINSID@"
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_bcl2barcode_Test01_lane_2_@JENKINSID@"
                     }
                 ],
                 "type": "ALL"
@@ -172,7 +172,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/150928_SN346_0594_AHCTWGBCXX_lane_2.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_metrics/workflow_test_03.metrics",
                 "type": "script"
             }
         ]
@@ -201,7 +201,7 @@
             "bcl2barcode.outputFileNamePrefix": null,
             "bcl2barcode.runDirectory": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/test_inputs/Test01",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -232,7 +232,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/OverrideBcl2fastqPath.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_metrics/workflow_test_04.metrics",
                 "type": "script"
             }
         ]
@@ -261,7 +261,7 @@
             "bcl2barcode.outputFileNamePrefix": null,
             "bcl2barcode.runDirectory": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/test_inputs/Test01",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -292,7 +292,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/OverrideBcl2fastqModule.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_metrics/workflow_test_05.metrics",
                 "type": "script"
             }
         ]
@@ -323,7 +323,7 @@
             "bcl2barcode.outputFileNamePrefix": null,
             "bcl2barcode.runDirectory": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/NextSeq/150114_NS500141_0187_AH2GN7AFXX",
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/test_inputs/Test02",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -354,7 +354,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/DualBarcodeTest.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_metrics/workflow_test_06.metrics",
                 "type": "script"
             }
         ]
@@ -380,10 +380,10 @@
                 1,
                 2
             ],
-            "bcl2barcode.outputFileNamePrefix": "150928_SN346_0594_AHCTWGBCXX_lane_1+2_",
+            "bcl2barcode.outputFileNamePrefix": "Test01_lane_1+2_",
             "bcl2barcode.runDirectory": {
                 "contents": {
-                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/input_data/basespace/HiSeq/150928_SN346_0594_AHCTWGBCXX",
+                    "configuration": "/.mounts/labs/gsi/testdata/bcl2barcode/test_inputs/Test01",
                     "externalIds": [
                         {
                             "id": "TEST",
@@ -414,7 +414,7 @@
             {
                 "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
                 "metrics_compare": "@CHECKOUT@/tests/compare.sh",
-                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_expectation/TestOutputFileNamePrefix.metrics",
+                "output_metrics": "/.mounts/labs/gsi/testdata/bcl2barcode/output_metrics/workflow_test_07.metrics",
                 "type": "script"
             }
         ]
